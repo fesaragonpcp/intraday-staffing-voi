@@ -1,0 +1,7 @@
+digraph G { rankdir=TB; nodesep=0.35; ranksep=0.4; node [fontname="Times New Roman", fontsize=16];
+t1 [label="Morning demand\nstate θ₁", shape=ellipse]; t2 [label="Afternoon demand\nstate θ₂", shape=ellipse];
+d1 [label="Morning staff d₁", shape=box]; S [label="Block-1 signal S\n(N₁ or X₁)", shape=ellipse];
+d2 [label="Afternoon staff d₂", shape=box]; L [label="Lost customers\n(retail, wholesale)", shape=ellipse];
+H [label="Overtime H", shape=ellipse]; C [label="Daily cost C", shape=diamond];
+t1 -> t2 [label=" persistence", fontsize=12]; t1 -> S; d1 -> S [style=dashed, label=" X₁ only", fontsize=12];
+S -> d2 [style=bold]; d1 -> d2; t1 -> L; t2 -> L; d1 -> L; d2 -> L; t2 -> H; d2 -> H; d1 -> C; d2 -> C; H -> C; L -> C; }

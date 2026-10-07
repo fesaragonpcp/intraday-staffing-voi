@@ -1,0 +1,16 @@
+{
+  "blocks": {"T1_hours": 8, "T2_hours": 6, "open": "08:00", "change": "16:00", "close": "22:00"},
+  "actions": {"servers_per_block": [2, 3], "transfer_delay_min": {"dist": "uniform", "low": 5, "high": 10}},
+  "demand_states": ["calm", "typical", "saturated"],
+  "customers_per_block": {"morning": [15, 30, 60], "afternoon": [10, 25, 40]},
+  "alternative_scenario_saturated_volumes": {"morning": 42.3, "afternoon": 32.3},
+  "hourly_profile_weights": {"morning_08_16": [0.5, 0.8, 1.1, 1.5, 1.2, 1.0, 0.8, 0.7], "afternoon_16_22": [1.0, 1.4, 1.2, 1.0, 0.8, 0.5]},
+  "occupancy_min": {"retail": {"dist": "triangular", "min": 10, "mode": 15, "max": 20}, "wholesale": {"dist": "triangular", "min": 30, "mode": 40, "max": 50}},
+  "wholesale_share": 0.20,
+  "patience_min": {"dist": "exponential", "mean": 15},
+  "costs_MXN": {"opportunity_morning_per_h": 120, "opportunity_afternoon_per_h": 250, "overtime_per_server_h": 85},
+  "lost_customer_value_MXN": {"retail_margin": 87.5, "wholesale_margin": 600, "willingness_to_pay": 150},
+  "joint_prior_rows_morning_cols_afternoon": [[0.14, 0.06, 0.00], [0.15, 0.15, 0.00], [0.10, 0.10, 0.30]],
+  "simulation": {"replications": 4000, "selection_replications": "0-1999", "evaluation_replications": "2000-3999",
+                 "seeds": "morning stream (0, r, 1, theta1); afternoon stream (0, r, 2, theta2); transfer delay (0, r, 9)"}
+}
