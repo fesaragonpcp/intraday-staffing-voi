@@ -2,7 +2,7 @@
 import pickle, subprocess, numpy as np
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
 from matplotlib.ticker import FuncFormatter
-plt.rcParams.update({'font.family':'DejaVu Serif','font.size':8})
+plt.rcParams.update({'font.family':'serif','font.serif':['Times New Roman','Liberation Serif','DejaVu Serif'],'font.size':8})
 subprocess.run(['dot','-Tpng','-Gdpi=300','influence_diagram.dot','-o','fig1.png'],check=True)
 V,C,G=pickle.load(open('grid.pkl','rb')); V=np.array(V); C=np.array(C)
 f,a=plt.subplots(figsize=(3.35,2.7),dpi=300)
@@ -12,7 +12,7 @@ a.errorbar([190],[250],yerr=[[100],[150]],fmt='o',color='k',mfc='white',ms=4,cap
 a.plot([150],[250],'^',color='k',mfc='white',ms=4); a.text(95,228,'WTP',fontsize=6)
 a.set_xlabel('Value of a lost customer (MXN)'); a.set_ylabel('Afternoon opportunity cost, $c_{a,2}$ (MXN/h)')
 f.tight_layout(); f.savefig('fig2.png')
-pers=pickle.load(open('all.pkl','rb'))['pers']; cf=FuncFormatter(lambda v,p: f'{v:.1f}'.replace('.',','))
+pers=pickle.load(open('all.pkl','rb'))['pers']; cf=FuncFormatter(lambda v,p: f'{v:.1f}')
 f,a=plt.subplots(figsize=(3.35,2.5),dpi=300)
 for path,ls,lab in (('max','-','to maximal persistence'),('elic','--','to elicited prior')):
     r=[x for x in pers if x[0]==path]; c=[x[2] for x in r]
