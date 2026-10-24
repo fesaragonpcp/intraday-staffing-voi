@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# Reproduces all results. Run from the repository root. Requires Graphviz (dot) for Figure 1.
+# Reproduces all results. Run from the repository folder. Requires Graphviz (dot) for Figure 1.
 set -e
-cd src
 python sims.py                       # simulation of all scenarios -> sims.pkl
 python ana.py                        # base-case policies (prints)
 python curves.py                     # EVSI vs lost-customer value -> curves.pkl
